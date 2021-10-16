@@ -24,5 +24,3 @@ RUN apk update && \
     apk del build-dependencies
 #「.」は、Dockerfileにあるディレクトリの全てのファイル
 COPY . ./
-#コンテナ内で実行したいコマンドを定義　-bはバインドの意味
-CMD ["rails", "server", "-b", "0.0.0.0"]

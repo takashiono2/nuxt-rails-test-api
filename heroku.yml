@@ -1,0 +1,25 @@
+setup:
+#　アプリ作成時にアドオンを自動で追加する
+  addons:
+    - plan: heroku-postgresql
+#　環境変数を指定する
+  config:
+#　Rackへ現在の環境を示す
+    RACK_ENV: production
+#　Railsへ現在の環境を示す
+    RAILS_ENV: production
+#　log出力のフラグ（enabled：出力）
+    RAILS_LOG_TO_STDOUT: enabled
+#　publicディレクトリからの静的ファイルを提供してもらうかのフラグ（enabled：提供してもらう）
+    RAILS_SERVE_STATIC_FILES: enabled
+# buildを定義
+build:
+#　参照するDockerfileの場所を定義
+  docker:
+    web: Dockerfile
+# build時にDockerfileに渡す環境変数を指定
+  config:
+    WORKDIR: app
+#　プロセスを定義
+run:
+  web: bundle exec puma -C config/puma.rb
