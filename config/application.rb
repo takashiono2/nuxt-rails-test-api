@@ -28,10 +28,24 @@ module App
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    
+    # 追加
+    # データベースの読み書きに使用するタイムゾーン(:local | :utc(default))
+    config.time_zone = ENV["TZ"]
 
+    # 追加
+    # データベースの読み書きに使用するタイムゾーン(:local | :utc(default))
+    config.active_record.default_timezone = :utc
+
+    config.i18n.default_locale = :ja
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+
+    # 追加
+    # $LOAD_PATHにautoload pathを追加しない(Zeitwerk有効時false推奨)
+    config.add_autoload_paths_to_load_path = false
+
     config.api_only = true
   end
 end
