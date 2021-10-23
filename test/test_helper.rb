@@ -13,8 +13,8 @@ class ActiveSupport::TestCase
   # 並列テストの有効化（workersが2以上）・無効化（workersが2未満)
   parallelize(workers: :number_of_processors)
 
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
-  # Add more helper methods to be used by all tests here...
+  # アクティブなユーザーを返す
+  def active_user
+    User.find_by(activated: true)
+  end
 end
