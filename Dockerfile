@@ -24,3 +24,5 @@ RUN apk update && \
     apk del build-dependencies
 #「.」は、Dockerfileにあるディレクトリの全てのファイル
 COPY . ./
+
+# CMD /bin/sh -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
